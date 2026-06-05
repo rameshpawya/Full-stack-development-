@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login & Signup UI</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#2563eb,#7c3aed);
+      padding:20px;
+    }
+
+    .container{
+      width:100%;
+      max-width:900px;
+      background:white;
+      border-radius:20px;
+      overflow:hidden;
+      display:flex;
+      box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    /* Left Side */
+    .left{
+      flex:1;
+      background:linear-gradient(135deg,#2563eb,#1e40af);
+      color:white;
+      padding:50px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .left h1{
+      font-size:42px;
+      margin-bottom:20px;
+    }
+
+    .left p{
+      line-height:1.7;
+      font-size:16px;
+    }
+
+    /* Right Side */
+    .right{
+      flex:1;
+      padding:40px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .form-box{
+      width:100%;
+    }
+
+    .form-box h2{
+      text-align:center;
+      margin-bottom:30px;
+      color:#222;
+    }
+
+    .input-box{
+      margin-bottom:20px;
+    }
+
+    .input-box input{
+      width:100%;
+      padding:14px;
+      border:1px solid #ccc;
+      border-radius:10px;
+      outline:none;
+      font-size:15px;
+      transition:0.3s;
+    }
+
+    .input-box input:focus{
+      border-color:#2563eb;
+      box-shadow:0 0 5px rgba(37,99,235,0.5);
+    }
+
+    .btn{
+      width:100%;
+      padding:14px;
+      border:none;
+      border-radius:10px;
+      background:#2563eb;
+      color:white;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#1d4ed8;
+    }
+
+    .switch-text{
+      margin-top:20px;
+      text-align:center;
+      font-size:14px;
+    }
+
+    .switch-text a{
+      color:#2563eb;
+      text-decoration:none;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    /* Hide Signup Initially */
+    #signupForm{
+      display:none;
+    }
+
+    /* Responsive */
+    @media(max-width:768px){
+
+      .container{
+        flex-direction:column;
+      }
+
+      .left{
+        text-align:center;
+        padding:30px;
+      }
+
+      .left h1{
+        font-size:32px;
+      }
+
+      .right{
+        padding:30px 20px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Left Section -->
+    <div class="left">
+      <h1>Welcome Back!</h1>
+      <p>
+        Create your account and explore modern responsive UI design
+        using HTML, CSS, and JavaScript.
+      </p>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right">
+
+      <!-- Login Form -->
+      <div class="form-box" id="loginForm">
+
+        <h2>Login</h2>
+
+        <div class="input-box">
+          <input type="email" placeholder="Email Address">
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Password">
+        </div>
+
+        <button class="btn">Login</button>
+
+        <div class="switch-text">
+          Don't have an account?
+          <a onclick="showSignup()">Signup</a>
+        </div>
+
+      </div>
+
+      <!-- Signup Form -->
+      <div class="form-box" id="signupForm">
+
+        <h2>Signup</h2>
+
+        <div class="input-box">
+          <input type="text" placeholder="Full Name">
+        </div>
+
+        <div class="input-box">
+          <input type="email" placeholder="Email Address">
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Password">
+        </div>
+
+        <div class="input-box">
+          <input type="password" placeholder="Confirm Password">
+        </div>
+
+        <button class="btn">Create Account</button>
+
+        <div class="switch-text">
+          Already have an account?
+          <a onclick="showLogin()">Login</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function showSignup(){
+      document.getElementById("loginForm").style.display = "none";
+      document.getElementById("signupForm").style.display = "block";
+    }
+
+    function showLogin(){
+      document.getElementById("signupForm").style.display = "none";
+      document.getElementById("loginForm").style.display = "block";
+    }
+
+  </script>
+
+</body>
+</html>

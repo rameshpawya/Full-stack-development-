@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Landing Page</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#f5f7fb;
+      color:#222;
+    }
+
+    /* Navbar */
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 8%;
+      background:white;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      position:sticky;
+      top:0;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+      color:#2563eb;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:25px;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:#333;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#2563eb;
+    }
+
+    /* Hero Section */
+    .hero{
+      min-height:90vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:50px 8%;
+      gap:50px;
+      flex-wrap:wrap;
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:300px;
+    }
+
+    .hero-text h1{
+      font-size:55px;
+      line-height:1.2;
+      margin-bottom:20px;
+    }
+
+    .hero-text p{
+      font-size:18px;
+      color:#555;
+      margin-bottom:30px;
+      line-height:1.6;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      background:#2563eb;
+      color:white;
+      text-decoration:none;
+      border-radius:8px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#1d4ed8;
+      transform:scale(1.05);
+    }
+
+    .hero-image{
+      flex:1;
+      min-width:300px;
+      text-align:center;
+    }
+
+    .hero-image img{
+      width:100%;
+      max-width:500px;
+    }
+
+    /* Features */
+    .features{
+      padding:70px 8%;
+      background:white;
+      text-align:center;
+    }
+
+    .features h2{
+      font-size:40px;
+      margin-bottom:50px;
+    }
+
+    .feature-boxes{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .box{
+      background:#f5f7fb;
+      padding:30px;
+      border-radius:15px;
+      transition:0.3s;
+    }
+
+    .box:hover{
+      transform:translateY(-10px);
+      box-shadow:0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .box h3{
+      margin:20px 0;
+      color:#2563eb;
+    }
+
+    /* Footer */
+    footer{
+      background:#111827;
+      color:white;
+      text-align:center;
+      padding:20px;
+    }
+
+    /* Responsive */
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .hero-text h1{
+        font-size:38px;
+      }
+
+      .hero{
+        text-align:center;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">MyBrand</div>
+
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+
+    <div class="hero-text">
+      <h1>Build Modern Websites Easily</h1>
+
+      <p>
+        Create beautiful and responsive websites using HTML and CSS.
+        Fast, clean, and mobile friendly design.
+      </p>
+
+      <a href="#" class="btn">Get Started</a>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Hero Image">
+    </div>
+
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+
+    <h2>Our Features</h2>
+
+    <div class="feature-boxes">
+
+      <div class="box">
+        <h3>Responsive Design</h3>
+        <p>Looks perfect on mobile, tablet, and desktop devices.</p>
+      </div>
+
+      <div class="box">
+        <h3>Fast Performance</h3>
+        <p>Optimized layout for smooth and quick loading speed.</p>
+      </div>
+
+      <div class="box">
+        <h3>Easy Customization</h3>
+        <p>Edit colors, text, and layout easily for your project.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 MyBrand. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings Management</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f1f5f9;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      padding:20px;
+    }
+
+    .settings-container{
+      width:100%;
+      max-width:950px;
+      background:#fff;
+      border-radius:15px;
+      box-shadow:0 5px 20px rgba(0,0,0,0.1);
+      overflow:hidden;
+    }
+
+    /* Header */
+
+    .settings-header{
+      background:#1e293b;
+      color:white;
+      padding:25px;
+    }
+
+    .settings-header h2{
+      margin-bottom:5px;
+    }
+
+    .settings-header p{
+      opacity:0.8;
+    }
+
+    /* Content */
+
+    .settings-content{
+      padding:30px;
+    }
+
+    .settings-section{
+      margin-bottom:35px;
+    }
+
+    .settings-section h3{
+      margin-bottom:20px;
+      color:#1e293b;
+    }
+
+    .setting-item{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 0;
+      border-bottom:1px solid #ddd;
+    }
+
+    .setting-item:last-child{
+      border-bottom:none;
+    }
+
+    .setting-info h4{
+      margin-bottom:5px;
+      color:#333;
+    }
+
+    .setting-info p{
+      font-size:14px;
+      color:#666;
+    }
+
+    /* Toggle Switch */
+
+    .switch{
+      position:relative;
+      display:inline-block;
+      width:55px;
+      height:28px;
+    }
+
+    .switch input{
+      opacity:0;
+      width:0;
+      height:0;
+    }
+
+    .slider{
+      position:absolute;
+      cursor:pointer;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      background:#ccc;
+      transition:0.4s;
+      border-radius:30px;
+    }
+
+    .slider:before{
+      position:absolute;
+      content:"";
+      height:22px;
+      width:22px;
+      left:3px;
+      bottom:3px;
+      background:white;
+      transition:0.4s;
+      border-radius:50%;
+    }
+
+    input:checked + .slider{
+      background:#1e293b;
+    }
+
+    input:checked + .slider:before{
+      transform:translateX(27px);
+    }
+
+    /* Input Fields */
+
+    .input-box{
+      margin-top:15px;
+    }
+
+    .input-box label{
+      display:block;
+      margin-bottom:8px;
+      font-weight:bold;
+      color:#444;
+    }
+
+    .input-box input,
+    .input-box select{
+      width:100%;
+      padding:12px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      outline:none;
+      font-size:15px;
+    }
+
+    /* Button */
+
+    .save-btn{
+      margin-top:20px;
+      padding:14px 22px;
+      background:#1e293b;
+      color:white;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:16px;
+      transition:0.3s;
+    }
+
+    .save-btn:hover{
+      background:#334155;
+    }
+
+    /* Responsive */
+
+    @media(max-width:768px){
+
+      .setting-item{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+      }
+
+      .settings-content{
+        padding:20px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="settings-container">
+
+    <!-- Header -->
+
+    <div class="settings-header">
+      <h2>Settings</h2>
+      <p>Manage your account settings and preferences</p>
+    </div>
+
+    <!-- Content -->
+
+    <div class="settings-content">
+
+      <!-- Notifications -->
+
+      <div class="settings-section">
+
+        <h3>Notifications</h3>
+
+        <div class="setting-item">
+
+          <div class="setting-info">
+            <h4>Email Notifications</h4>
+            <p>Receive updates through email</p>
+          </div>
+
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+
+        </div>
+
+        <div class="setting-item">
+
+          <div class="setting-info">
+            <h4>SMS Alerts</h4>
+            <p>Receive alerts on your phone</p>
+          </div>
+
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+
+        </div>
+
+      </div>
+
+      <!-- Account Settings -->
+
+      <div class="settings-section">
+
+        <h3>Account Settings</h3>
+
+        <div class="input-box">
+          <label>Username</label>
+          <input type="text" placeholder="Enter username">
+        </div>
+
+        <div class="input-box">
+          <label>Language</label>
+
+          <select>
+            <option>English</option>
+            <option>Tamil</option>
+            <option>Hindi</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- Security -->
+
+      <div class="settings-section">
+
+        <h3>Security</h3>
+
+        <div class="input-box">
+          <label>New Password</label>
+          <input type="password" placeholder="Enter new password">
+        </div>
+
+        <div class="input-box">
+          <label>Confirm Password</label>
+          <input type="password" placeholder="Confirm password">
+        </div>
+
+      </div>
+
+      <!-- Save Button -->
+
+      <button class="save-btn">
+        Save Settings
+      </button>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

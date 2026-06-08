@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Frontend Routing</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f4f4f4;
+    }
+
+    nav{
+      background:#1e293b;
+      padding:15px;
+      display:flex;
+      gap:20px;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      font-size:18px;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#38bdf8;
+    }
+
+    .page{
+      display:none;
+      padding:30px;
+    }
+
+    .active{
+      display:block;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:10px;
+      box-shadow:0 2px 5px rgba(0,0,0,0.2);
+      margin-top:20px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Home Page -->
+
+  <div id="home" class="page active">
+    <div class="card">
+      <h1>Home Page</h1>
+      <p>Welcome to the frontend routing example.</p>
+    </div>
+  </div>
+
+  <!-- About Page -->
+
+  <div id="about" class="page">
+    <div class="card">
+      <h1>About Page</h1>
+      <p>This page explains about our website.</p>
+    </div>
+  </div>
+
+  <!-- Services Page -->
+
+  <div id="services" class="page">
+    <div class="card">
+      <h1>Services Page</h1>
+      <p>We provide web development services.</p>
+    </div>
+  </div>
+
+  <!-- Contact Page -->
+
+  <div id="contact" class="page">
+    <div class="card">
+      <h1>Contact Page</h1>
+      <p>Email: demo@gmail.com</p>
+    </div>
+  </div>
+
+  <script>
+
+    function showPage(){
+
+      let hash = window.location.hash || "#home";
+
+      let pages = document.querySelectorAll(".page");
+
+      pages.forEach(page=>{
+        page.classList.remove("active");
+      });
+
+      let activePage = document.querySelector(hash);
+
+      if(activePage){
+        activePage.classList.add("active");
+      }
+    }
+
+    window.addEventListener("hashchange", showPage);
+
+    window.addEventListener("load", showPage);
+
+  </script>
+
+</body>
+</html>

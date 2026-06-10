@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Node.js Express Backend UI</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f3f4f6;
+      padding:40px;
+    }
+
+    .container{
+      max-width:1000px;
+      margin:auto;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:30px;
+      color:#111827;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      margin-bottom:25px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      margin-bottom:15px;
+      color:#2563eb;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin-bottom:15px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      outline:none;
+    }
+
+    button{
+      padding:12px 18px;
+      border:none;
+      background:#2563eb;
+      color:white;
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+
+    table th,
+    table td{
+      border:1px solid #ddd;
+      padding:12px;
+      text-align:center;
+    }
+
+    table th{
+      background:#2563eb;
+      color:white;
+    }
+
+    .delete-btn{
+      background:red;
+    }
+
+    .delete-btn:hover{
+      background:darkred;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Node.js Express Backend Frontend UI</h1>
+
+    <!-- Add Product -->
+
+    <div class="card">
+
+      <h2>Add Product</h2>
+
+      <input type="text" id="name" placeholder="Enter product name">
+
+      <input type="number" id="price" placeholder="Enter product price">
+
+      <button onclick="addProduct()">
+        Add Product
+      </button>
+
+    </div>
+
+    <!-- Product List -->
+
+    <div class="card">
+
+      <h2>Product List</h2>
+
+      <table>
+
+        <thead>
+
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+
+        </thead>
+
+        <tbody id="productTable">
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    let products = [
+
+      {
+        id:1,
+        name:"Laptop",
+        price:50000
+      },
+
+      {
+        id:2,
+        name:"Mobile",
+        price:20000
+      }
+
+    ];
+
+    function displayProducts(){
+
+      const table =
+        document.getElementById("productTable");
+
+      table.innerHTML = "";
+
+      products.forEach((product,index)=>{
+
+        table.innerHTML += `
+
+          <tr>
+
+            <td>${product.id}</td>
+
+            <td>${product.name}</td>
+
+            <td>₹${product.price}</td>
+
+            <td>
+
+              <button
+                class="delete-btn"
+                onclick="deleteProduct(${index})">
+
+                Delete
+
+              </button>
+
+            </td>
+
+          </tr>
+
+        `;
+
+      });
+
+    }
+
+    function addProduct(){
+
+      const name =
+        document.getElementById("name").value;
+
+      const price =
+        document.getElementById("price").value;
+
+      if(name === "" || price === ""){
+
+        alert("Please fill all fields");
+
+        return;
+
+      }
+
+      const newProduct = {
+
+        id: products.length + 1,
+
+        name:name,
+
+        price:price
+
+      };
+
+      products.push(newProduct);
+
+      displayProducts();
+
+      document.getElementById("name").value = "";
+
+      document.getElementById("price").value = "";
+
+    }
+
+    function deleteProduct(index){
+
+      products.splice(index,1);
+
+      displayProducts();
+
+    }
+
+    displayProducts();
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Responsive Mobile Layout</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f1f5f9;
+    }
+
+    /* Navbar */
+
+    .navbar{
+      background:#1e293b;
+      color:white;
+      padding:15px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:bold;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:20px;
+    }
+
+    .nav-links a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#38bdf8;
+    }
+
+    /* Hero Section */
+
+    .hero{
+      padding:60px 20px;
+      text-align:center;
+      background:white;
+    }
+
+    .hero h1{
+      font-size:40px;
+      margin-bottom:15px;
+      color:#1e293b;
+    }
+
+    .hero p{
+      font-size:18px;
+      color:#64748b;
+      max-width:700px;
+      margin:auto;
+    }
+
+    .hero button{
+      margin-top:25px;
+      padding:12px 25px;
+      border:none;
+      border-radius:8px;
+      background:#2563eb;
+      color:white;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    /* Cards */
+
+    .card-section{
+      padding:40px 20px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 2px 5px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      color:#2563eb;
+    }
+
+    .card p{
+      color:#475569;
+      line-height:1.5;
+    }
+
+    /* Footer */
+
+    footer{
+      background:#1e293b;
+      color:white;
+      text-align:center;
+      padding:20px;
+      margin-top:30px;
+    }
+
+    /* Tablet */
+
+    @media(max-width:900px){
+
+      .card-section{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .hero h1{
+        font-size:32px;
+      }
+
+    }
+
+    /* Mobile */
+
+    @media(max-width:600px){
+
+      .navbar{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .nav-links{
+        flex-direction:column;
+        align-items:center;
+      }
+
+      .card-section{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:28px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .hero button{
+        width:100%;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+
+  <div class="navbar">
+
+    <div class="logo">
+      MyWebsite
+    </div>
+
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+
+  </div>
+
+  <!-- Hero Section -->
+
+  <section class="hero">
+
+    <h1>Responsive Mobile Layout</h1>
+
+    <p>
+      This layout automatically adjusts for desktop,
+      tablet, and mobile screen sizes using media queries.
+    </p>
+
+    <button>
+      Get Started
+    </button>
+
+  </section>
+
+  <!-- Cards -->
+
+  <section class="card-section">
+
+    <div class="card">
+      <h3>Web Design</h3>
+
+      <p>
+        Create beautiful responsive websites
+        for all devices.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Frontend Development</h3>
+
+      <p>
+        Build interactive user interfaces
+        using HTML, CSS, and JavaScript.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Mobile Friendly</h3>
+
+      <p>
+        Optimized layouts for phones,
+        tablets, and desktops.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+
+  <footer>
+    <p>© 2026 Responsive Layout Design</p>
+  </footer>
+
+</body>
+</html>

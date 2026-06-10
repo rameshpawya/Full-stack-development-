@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>API Rate Limiting</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      background:#f3f4f6;
+      padding:40px;
+    }
+
+    .container{
+      max-width:1000px;
+      margin:auto;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:30px;
+      color:#111827;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      margin-bottom:25px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      margin-bottom:15px;
+      color:#2563eb;
+    }
+
+    button{
+      padding:12px 18px;
+      border:none;
+      border-radius:8px;
+      background:#2563eb;
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+    .message{
+      margin-top:20px;
+      padding:12px;
+      border-radius:8px;
+      display:none;
+      font-weight:bold;
+    }
+
+    .success{
+      background:#dcfce7;
+      color:green;
+    }
+
+    .error{
+      background:#fee2e2;
+      color:red;
+    }
+
+    .counter{
+      margin-top:15px;
+      font-size:18px;
+      font-weight:bold;
+      color:#111827;
+    }
+
+    pre{
+      background:#111827;
+      color:#22c55e;
+      padding:20px;
+      border-radius:10px;
+      overflow-x:auto;
+      line-height:1.8;
+      margin-top:20px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>API Rate Limiting System</h1>
+
+    <!-- API Request Section -->
+
+    <div class="card">
+
+      <h2>Protected API Request</h2>
+
+      <button onclick="makeRequest()">
+        Send API Request
+      </button>
+
+      <div
+        class="counter"
+        id="counter">
+
+        Requests Remaining: 5
+
+      </div>
+
+      <div
+        class="message"
+        id="messageBox">
+
+      </div>
+
+    </div>
+
+    <!-- Backend Code -->
+
+    <div class="card">
+
+      <h2>Express Rate Limiting Backend Code</h2>
+
+<pre>
+
+const express = require("express");
+
+const rateLimit =
+  require("express-rate-limit");
+
+const app = express();
+
+const limiter = rateLimit({
+
+  windowMs: 1 * 60 * 1000,
+
+  max: 5,
+
+  message:
+    "Too many requests, try again later"
+
+});
+
+app.use(limiter);
+
+app.get("/api",(req,res)=>{
+
+  res.json({
+
+    message:"API Request Success"
+
+  });
+
+});
+
+app.listen(5000);
+
+</pre>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    let requestCount = 0;
+
+    const maxRequests = 5;
+
+    function showMessage(type,message){
+
+      const messageBox =
+        document.getElementById("messageBox");
+
+      messageBox.style.display = "block";
+
+      messageBox.className =
+        message ${type};
+
+      messageBox.innerText = message;
+
+    }
+
+    function updateCounter(){
+
+      const remaining =
+        maxRequests - requestCount;
+
+      document.getElementById(
+        "counter"
+      ).innerText =
+        Requests Remaining: ${remaining};
+
+    }
+
+    function makeRequest(){
+
+      try{
+
+        if(requestCount >= maxRequests){
+
+          throw new Error(
+            "Too many requests. Please wait."
+          );
+
+        }
+
+        requestCount++;
+
+        updateCounter();
+
+        showMessage(
+          "success",
+          "API Request Successful"
+        );
+
+      }
+
+      catch(error){
+
+        showMessage(
+          "error",
+          error.message
+        );
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

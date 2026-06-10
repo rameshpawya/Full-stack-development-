@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Email Verification System</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      background:#f3f4f6;
+      padding:40px;
+    }
+
+    .container{
+      max-width:900px;
+      margin:auto;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:30px;
+      color:#111827;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      margin-bottom:25px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      margin-bottom:15px;
+      color:#2563eb;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin-bottom:15px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      outline:none;
+    }
+
+    button{
+      padding:12px 18px;
+      border:none;
+      border-radius:8px;
+      background:#2563eb;
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+    .message{
+      margin-top:20px;
+      padding:12px;
+      border-radius:8px;
+      display:none;
+      font-weight:bold;
+    }
+
+    .success{
+      background:#dcfce7;
+      color:green;
+    }
+
+    .error{
+      background:#fee2e2;
+      color:red;
+    }
+
+    .otp-box{
+      display:none;
+      margin-top:20px;
+    }
+
+    pre{
+      background:#111827;
+      color:#22c55e;
+      padding:20px;
+      border-radius:10px;
+      overflow-x:auto;
+      line-height:1.8;
+      margin-top:20px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Email Verification System</h1>
+
+    <!-- Email Verification -->
+
+    <div class="card">
+
+      <h2>Verify Your Email</h2>
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter Your Email"
+      >
+
+      <button onclick="sendOTP()">
+        Send Verification Code
+      </button>
+
+      <!-- OTP Section -->
+
+      <div
+        class="otp-box"
+        id="otpSection">
+
+        <input
+          type="text"
+          id="otpInput"
+          placeholder="Enter OTP"
+        >
+
+        <button onclick="verifyOTP()">
+          Verify OTP
+        </button>
+
+      </div>
+
+      <div
+        class="message"
+        id="messageBox">
+
+      </div>
+
+    </div>
+
+    <!-- Backend Example -->
+
+    <div class="card">
+
+      <h2>Node.js Email Verification Backend</h2>
+
+<pre>
+
+const nodemailer = require("nodemailer");
+
+const otp = Math.floor(
+  100000 + Math.random() * 900000
+);
+
+const transporter =
+  nodemailer.createTransport({
+
+    service:"gmail",
+
+    auth:{
+      user:"your@gmail.com",
+      pass:"yourpassword"
+    }
+
+});
+
+const mailOptions = {
+
+  from:"your@gmail.com",
+
+  to:"user@gmail.com",
+
+  subject:"Email Verification",
+
+  text:Your OTP is ${otp}
+
+};
+
+transporter.sendMail(
+  mailOptions,
+  (error,info)=>{
+
+    if(error){
+
+      console.log(error);
+
+    }
+
+    else{
+
+      console.log(
+        "Email Sent"
+      );
+
+    }
+
+});
+
+</pre>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    let generatedOTP = "";
+
+    function showMessage(type,message){
+
+      const messageBox =
+        document.getElementById("messageBox");
+
+      messageBox.style.display = "block";
+
+      messageBox.className =
+        message ${type};
+
+      messageBox.innerText = message;
+
+    }
+
+    function sendOTP(){
+
+      const email =
+        document.getElementById("email").value;
+
+      if(email === ""){
+
+        showMessage(
+          "error",
+          "Please enter email"
+        );
+
+        return;
+
+      }
+
+      // Generate OTP
+
+      generatedOTP =
+        Math.floor(
+          100000 + Math.random() * 900000
+        ).toString();
+
+      console.log(
+        "Generated OTP:",
+        generatedOTP
+      );
+
+      document.getElementById(
+        "otpSection"
+      ).style.display = "block";
+
+      showMessage(
+        "success",
+        "OTP Sent Successfully"
+      );
+
+    }
+
+    function verifyOTP(){
+
+      const userOTP =
+        document.getElementById("otpInput").value;
+
+      if(userOTP === generatedOTP){
+
+        showMessage(
+          "success",
+          "Email Verified Successfully"
+        );
+
+      }
+
+      else{
+
+        showMessage(
+          "error",
+          "Invalid OTP"
+        );
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

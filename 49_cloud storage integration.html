@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cloud Storage Upload</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #status {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Upload File to Cloud Storage</h2>
+
+    <input type="file" id="fileInput">
+    <br><br>
+
+    <button onclick="uploadFile()">Upload</button>
+
+    <p id="status"></p>
+</div>
+
+<script>
+async function uploadFile() {
+    const fileInput = document.getElementById("fileInput");
+    const status = document.getElementById("status");
+
+    if (!fileInput.files.length) {
+        status.textContent = "Please select a file.";
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+
+    try {
+        status.textContent = "Uploading...";
+
+        const response = await fetch("/upload", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.json();
+
+        status.textContent = "Upload successful!";
+        console.log(result);
+
+    } catch (error) {
+        status.textContent = "Upload failed!";
+        console.error(error);
+    }
+}
+</script>
+
+</body>
+</html>

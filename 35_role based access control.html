@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Role Based Access Control</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      background:#f3f4f6;
+      padding:40px;
+    }
+
+    .container{
+      max-width:900px;
+      margin:auto;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom:25px;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:30px;
+      color:#111827;
+    }
+
+    h2{
+      margin-bottom:15px;
+      color:#2563eb;
+    }
+
+    input,
+    select{
+      width:100%;
+      padding:12px;
+      margin-bottom:15px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      outline:none;
+    }
+
+    button{
+      padding:12px 18px;
+      border:none;
+      border-radius:8px;
+      background:#2563eb;
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+    .logout-btn{
+      background:red;
+      margin-top:20px;
+    }
+
+    .logout-btn:hover{
+      background:darkred;
+    }
+
+    .hidden{
+      display:none;
+    }
+
+    .admin-panel{
+      background:#fee2e2;
+      padding:20px;
+      border-radius:10px;
+      margin-top:20px;
+    }
+
+    .editor-panel{
+      background:#dbeafe;
+      padding:20px;
+      border-radius:10px;
+      margin-top:20px;
+    }
+
+    .user-panel{
+      background:#dcfce7;
+      padding:20px;
+      border-radius:10px;
+      margin-top:20px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Login Section -->
+
+    <div class="card" id="loginSection">
+
+      <h1>Role Based Access Control</h1>
+
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter Username"
+      >
+
+      <select id="role">
+
+        <option value="">
+          Select Role
+        </option>
+
+        <option value="admin">
+          Admin
+        </option>
+
+        <option value="editor">
+          Editor
+        </option>
+
+        <option value="user">
+          User
+        </option>
+
+      </select>
+
+      <button onclick="login()">
+        Login
+      </button>
+
+    </div>
+
+    <!-- Dashboard -->
+
+    <div class="card hidden" id="dashboard">
+
+      <h2 id="welcomeText"></h2>
+
+      <!-- Admin Panel -->
+
+      <div
+        class="admin-panel hidden"
+        id="adminPanel">
+
+        <h3>Admin Dashboard</h3>
+
+        <p>
+          Admin can manage users,
+          delete content and access
+          all system controls.
+        </p>
+
+      </div>
+
+      <!-- Editor Panel -->
+
+      <div
+        class="editor-panel hidden"
+        id="editorPanel">
+
+        <h3>Editor Dashboard</h3>
+
+        <p>
+          Editor can create and
+          edit blog posts and content.
+        </p>
+
+      </div>
+
+      <!-- User Panel -->
+
+      <div
+        class="user-panel hidden"
+        id="userPanel">
+
+        <h3>User Dashboard</h3>
+
+        <p>
+          User can only view content.
+        </p>
+
+      </div>
+
+      <button
+        class="logout-btn"
+        onclick="logout()">
+
+        Logout
+
+      </button>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function login(){
+
+      const username =
+        document.getElementById("username").value;
+
+      const role =
+        document.getElementById("role").value;
+
+      if(username === "" || role === ""){
+
+        alert("Please fill all fields");
+
+        return;
+
+      }
+
+      localStorage.setItem(
+        "username",
+        username
+      );
+
+      localStorage.setItem(
+        "role",
+        role
+      );
+
+      showDashboard();
+
+    }
+
+    function showDashboard(){
+
+      const username =
+        localStorage.getItem("username");
+
+      const role =
+        localStorage.getItem("role");
+
+      if(username && role){
+
+        document.getElementById(
+          "loginSection"
+        ).classList.add("hidden");
+
+        document.getElementById(
+          "dashboard"
+        ).classList.remove("hidden");
+
+        document.getElementById(
+          "welcomeText"
+        ).innerText =
+          Welcome ${username} (${role});
+
+        // Hide All Panels
+
+        document.getElementById(
+          "adminPanel"
+        ).classList.add("hidden");
+
+        document.getElementById(
+          "editorPanel"
+        ).classList.add("hidden");
+
+        document.getElementById(
+          "userPanel"
+        ).classList.add("hidden");
+
+        // Role Access
+
+        if(role === "admin"){
+
+          document.getElementById(
+            "adminPanel"
+          ).classList.remove("hidden");
+
+        }
+
+        else if(role === "editor"){
+
+          document.getElementById(
+            "editorPanel"
+          ).classList.remove("hidden");
+
+        }
+
+        else if(role === "user"){
+
+          document.getElementById(
+            "userPanel"
+          ).classList.remove("hidden");
+
+        }
+
+      }
+
+    }
+
+    function logout(){
+
+      localStorage.clear();
+
+      location.reload();
+
+    }
+
+    // Auto Login
+
+    showDashboard();
+
+  </script>
+
+</body>
+</html>

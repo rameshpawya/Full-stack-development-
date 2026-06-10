@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Centralized Error Handling</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      background:#f3f4f6;
+      padding:40px;
+    }
+
+    .container{
+      max-width:1000px;
+      margin:auto;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:30px;
+      color:#111827;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      margin-bottom:25px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      margin-bottom:15px;
+      color:#2563eb;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin-bottom:15px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      outline:none;
+    }
+
+    button{
+      padding:12px 18px;
+      border:none;
+      border-radius:8px;
+      background:#2563eb;
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+    .message{
+      margin-top:15px;
+      padding:12px;
+      border-radius:8px;
+      display:none;
+      font-weight:bold;
+    }
+
+    .success{
+      background:#dcfce7;
+      color:green;
+    }
+
+    .error{
+      background:#fee2e2;
+      color:red;
+    }
+
+    pre{
+      background:#111827;
+      color:#22c55e;
+      padding:20px;
+      border-radius:10px;
+      overflow-x:auto;
+      line-height:1.8;
+      margin-top:20px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Centralized Error Handling System</h1>
+
+    <!-- Form -->
+
+    <div class="card">
+
+      <h2>User Login</h2>
+
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter Username"
+      >
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter Password"
+      >
+
+      <button onclick="loginUser()">
+        Login
+      </button>
+
+      <div
+        class="message"
+        id="messageBox">
+
+      </div>
+
+    </div>
+
+    <!-- Backend Example -->
+
+    <div class="card">
+
+      <h2>Express Centralized Error Handling</h2>
+
+<pre>
+
+const express = require("express");
+
+const app = express();
+
+app.get("/users",(req,res,next)=>{
+
+  try{
+
+    throw new Error(
+      "Database Connection Failed"
+    );
+
+  }
+
+  catch(error){
+
+    next(error);
+
+  }
+
+});
+
+// Centralized Error Middleware
+
+app.use((error,req,res,next)=>{
+
+  res.status(500).json({
+
+    success:false,
+
+    message:error.message
+
+  });
+
+});
+
+app.listen(5000);
+
+</pre>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function showMessage(type,message){
+
+      const messageBox =
+        document.getElementById("messageBox");
+
+      messageBox.style.display = "block";
+
+      messageBox.className =
+        message ${type};
+
+      messageBox.innerText = message;
+
+    }
+
+    function centralizedErrorHandler(error){
+
+      console.error(error);
+
+      showMessage(
+        "error",
+        error.message
+      );
+
+    }
+
+    function loginUser(){
+
+      try{
+
+        const username =
+          document.getElementById(
+            "username"
+          ).value;
+
+        const password =
+          document.getElementById(
+            "password"
+          ).value;
+
+        if(username === ""
+          || password === ""){
+
+          throw new Error(
+            "All fields are required"
+          );
+
+        }
+
+        if(password.length < 4){
+
+          throw new Error(
+            "Password must be minimum 4 characters"
+          );
+
+        }
+
+        // Fake Login Success
+
+        showMessage(
+          "success",
+          "Login Successful"
+        );
+
+      }
+
+      catch(error){
+
+        centralizedErrorHandler(error);
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

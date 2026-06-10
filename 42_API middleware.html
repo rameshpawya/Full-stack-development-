@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>API Middleware System</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      background:#f3f4f6;
+      padding:40px;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:auto;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:30px;
+      color:#111827;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      margin-bottom:25px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      margin-bottom:15px;
+      color:#2563eb;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin-bottom:15px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      outline:none;
+    }
+
+    button{
+      padding:12px 18px;
+      border:none;
+      border-radius:8px;
+      background:#2563eb;
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+    .status{
+      margin-top:15px;
+      padding:12px;
+      border-radius:8px;
+      display:none;
+      font-weight:bold;
+    }
+
+    .success{
+      background:#dcfce7;
+      color:green;
+    }
+
+    .error{
+      background:#fee2e2;
+      color:red;
+    }
+
+    pre{
+      background:#111827;
+      color:#22c55e;
+      padding:20px;
+      border-radius:10px;
+      overflow-x:auto;
+      line-height:1.8;
+      margin-top:20px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>API Middleware Authentication</h1>
+
+    <!-- Middleware UI -->
+
+    <div class="card">
+
+      <h2>Protected API Access</h2>
+
+      <input
+        type="text"
+        id="token"
+        placeholder="Enter API Token"
+      >
+
+      <button onclick="checkMiddleware()">
+        Verify Access
+      </button>
+
+      <div
+        class="status"
+        id="statusBox">
+
+      </div>
+
+    </div>
+
+    <!-- Backend Code -->
+
+    <div class="card">
+
+      <h2>Express Middleware Backend Code</h2>
+
+<pre>
+
+const express = require("express");
+
+const app = express();
+
+function authMiddleware(
+  req,
+  res,
+  next
+){
+
+  const token =
+    req.headers.authorization;
+
+  if(token === "mysecrettoken"){
+
+    next();
+
+  }
+
+  else{
+
+    res.status(401).json({
+
+      message:"Unauthorized Access"
+
+    });
+
+  }
+
+}
+
+app.get(
+  "/dashboard",
+  authMiddleware,
+  (req,res)=>{
+
+    res.json({
+
+      message:"Welcome Admin"
+
+    });
+
+  }
+);
+
+app.listen(5000);
+
+</pre>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function checkMiddleware(){
+
+      const token =
+        document.getElementById("token").value;
+
+      const statusBox =
+        document.getElementById("statusBox");
+
+      if(token === ""){
+
+        statusBox.style.display = "block";
+
+        statusBox.className =
+          "status error";
+
+        statusBox.innerText =
+          "Please enter API token";
+
+        return;
+
+      }
+
+      // Fake Middleware Verification
+
+      if(token === "mysecrettoken"){
+
+        statusBox.style.display = "block";
+
+        statusBox.className =
+          "status success";
+
+        statusBox.innerText =
+          "Access Granted Successfully";
+
+      }
+
+      else{
+
+        statusBox.style.display = "block";
+
+        statusBox.className =
+          "status error";
+
+        statusBox.innerText =
+          "Unauthorized Access";
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

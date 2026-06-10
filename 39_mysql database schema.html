@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>MySQL Database Schema</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      background:#f3f4f6;
+      padding:40px;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:auto;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:30px;
+      color:#111827;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      margin-bottom:25px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      margin-bottom:15px;
+      color:#2563eb;
+    }
+
+    pre{
+      background:#111827;
+      color:#22c55e;
+      padding:20px;
+      border-radius:10px;
+      overflow-x:auto;
+      line-height:1.8;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+
+    table th,
+    table td{
+      border:1px solid #ddd;
+      padding:12px;
+      text-align:left;
+    }
+
+    table th{
+      background:#2563eb;
+      color:white;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>MySQL Database Schema</h1>
+
+    <!-- SQL Schema -->
+
+    <div class="card">
+
+      <h2>SQL Schema Code</h2>
+
+<pre>
+
+CREATE DATABASE college_db;
+
+USE college_db;
+
+CREATE TABLE students (
+
+    id INT PRIMARY KEY AUTO_INCREMENT,
+
+    name VARCHAR(100) NOT NULL,
+
+    email VARCHAR(100) UNIQUE NOT NULL,
+
+    course VARCHAR(100),
+
+    age INT,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);
+
+CREATE TABLE teachers (
+
+    id INT PRIMARY KEY AUTO_INCREMENT,
+
+    name VARCHAR(100) NOT NULL,
+
+    subject VARCHAR(100),
+
+    email VARCHAR(100) UNIQUE
+
+);
+
+CREATE TABLE courses (
+
+    id INT PRIMARY KEY AUTO_INCREMENT,
+
+    course_name VARCHAR(100),
+
+    duration VARCHAR(50),
+
+    fees DECIMAL(10,2)
+
+);
+
+</pre>
+
+    </div>
+
+    <!-- Schema Explanation -->
+
+    <div class="card">
+
+      <h2>Database Tables</h2>
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Table Name</th>
+            <th>Description</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>students</td>
+
+            <td>
+              Stores student information
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>teachers</td>
+
+            <td>
+              Stores teacher details
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>courses</td>
+
+            <td>
+              Stores course information
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <!-- Students Table -->
+
+    <div class="card">
+
+      <h2>Students Table Structure</h2>
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Column</th>
+            <th>Data Type</th>
+            <th>Description</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>id</td>
+            <td>INT</td>
+            <td>Primary Key</td>
+          </tr>
+
+          <tr>
+            <td>name</td>
+            <td>VARCHAR(100)</td>
+            <td>Student Name</td>
+          </tr>
+
+          <tr>
+            <td>email</td>
+            <td>VARCHAR(100)</td>
+            <td>Student Email</td>
+          </tr>
+
+          <tr>
+            <td>course</td>
+            <td>VARCHAR(100)</td>
+            <td>Course Name</td>
+          </tr>
+
+          <tr>
+            <td>age</td>
+            <td>INT</td>
+            <td>Student Age</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

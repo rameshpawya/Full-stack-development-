@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>MongoDB Integration UI</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      background:#f3f4f6;
+      padding:40px;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:auto;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:30px;
+      color:#111827;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      margin-bottom:25px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      margin-bottom:15px;
+      color:#16a34a;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin-bottom:15px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      outline:none;
+    }
+
+    button{
+      padding:12px 18px;
+      border:none;
+      border-radius:8px;
+      background:#16a34a;
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#15803d;
+    }
+
+    .status{
+      margin-top:15px;
+      padding:12px;
+      border-radius:8px;
+      display:none;
+      font-weight:bold;
+    }
+
+    .success{
+      background:#dcfce7;
+      color:green;
+    }
+
+    .error{
+      background:#fee2e2;
+      color:red;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+
+    table th,
+    table td{
+      border:1px solid #ddd;
+      padding:12px;
+      text-align:center;
+    }
+
+    table th{
+      background:#16a34a;
+      color:white;
+    }
+
+    pre{
+      background:#111827;
+      color:#22c55e;
+      padding:20px;
+      border-radius:10px;
+      overflow-x:auto;
+      line-height:1.7;
+      margin-top:20px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>MongoDB Integration System</h1>
+
+    <!-- Connection Section -->
+
+    <div class="card">
+
+      <h2>MongoDB Connection</h2>
+
+      <input
+        type="text"
+        id="mongoUrl"
+        placeholder="Enter MongoDB URL"
+      >
+
+      <input
+        type="text"
+        id="dbName"
+        placeholder="Enter Database Name"
+      >
+
+      <button onclick="connectMongoDB()">
+        Connect MongoDB
+      </button>
+
+      <div
+        class="status"
+        id="statusBox">
+
+      </div>
+
+    </div>
+
+    <!-- Data Section -->
+
+    <div class="card">
+
+      <h2>User Collection Data</h2>
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody id="tableBody">
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <!-- Backend Example -->
+
+    <div class="card">
+
+      <h2>Node.js MongoDB Backend Code</h2>
+
+<pre>
+
+const mongoose = require("mongoose");
+
+mongoose.connect(
+  "mongodb://127.0.0.1:27017/mydatabase"
+)
+
+.then(() => {
+  console.log("MongoDB Connected");
+})
+
+.catch((error) => {
+  console.log(error);
+});
+
+const userSchema = new mongoose.Schema({
+
+  name:String,
+
+  email:String
+
+});
+
+const User =
+  mongoose.model("User", userSchema);
+
+</pre>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    // Sample MongoDB Collection Data
+
+    const users = [
+
+      {
+        id:"661ab01",
+        name:"Raja",
+        email:"raja@gmail.com"
+      },
+
+      {
+        id:"661ab02",
+        name:"Banu",
+        email:"banu@gmail.com"
+      },
+
+      {
+        id:"661ab03",
+        name:"Kumar",
+        email:"kumar@gmail.com"
+      }
+
+    ];
+
+    function connectMongoDB(){
+
+      const mongoUrl =
+        document.getElementById("mongoUrl").value;
+
+      const dbName =
+        document.getElementById("dbName").value;
+
+      const statusBox =
+        document.getElementById("statusBox");
+
+      if(mongoUrl === "" || dbName === ""){
+
+        statusBox.style.display = "block";
+
+        statusBox.className =
+          "status error";
+
+        statusBox.innerText =
+          "Please enter MongoDB details";
+
+        return;
+
+      }
+
+      // Fake MongoDB Connection
+
+      statusBox.style.display = "block";
+
+      statusBox.className =
+        "status success";
+
+      statusBox.innerText =
+        "MongoDB Connected Successfully";
+
+      displayUsers();
+
+    }
+
+    function displayUsers(){
+
+      const tableBody =
+        document.getElementById("tableBody");
+
+      tableBody.innerHTML = "";
+
+      users.forEach((user)=>{
+
+        tableBody.innerHTML += `
+
+          <tr>
+
+            <td>${user.id}</td>
+
+            <td>${user.name}</td>
+
+            <td>${user.email}</td>
+
+          </tr>
+
+        `;
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Database Connectivity UI</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial,sans-serif;
+    }
+
+    body{
+      background:#f3f4f6;
+      padding:40px;
+    }
+
+    .container{
+      max-width:1000px;
+      margin:auto;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:30px;
+      color:#111827;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      margin-bottom:25px;
+    }
+
+    h2{
+      margin-bottom:15px;
+      color:#2563eb;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin-bottom:15px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      outline:none;
+    }
+
+    button{
+      padding:12px 18px;
+      border:none;
+      border-radius:8px;
+      background:#2563eb;
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+    .status{
+      margin-top:15px;
+      padding:12px;
+      border-radius:8px;
+      font-weight:bold;
+      display:none;
+    }
+
+    .success{
+      background:#dcfce7;
+      color:green;
+    }
+
+    .error{
+      background:#fee2e2;
+      color:red;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+
+    table th,
+    table td{
+      border:1px solid #ddd;
+      padding:12px;
+      text-align:center;
+    }
+
+    table th{
+      background:#2563eb;
+      color:white;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Database Connectivity System</h1>
+
+    <!-- Database Connection -->
+
+    <div class="card">
+
+      <h2>Connect Database</h2>
+
+      <input
+        type="text"
+        id="host"
+        placeholder="Enter Host"
+      >
+
+      <input
+        type="text"
+        id="database"
+        placeholder="Enter Database Name"
+      >
+
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter Username"
+      >
+
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter Password"
+      >
+
+      <button onclick="connectDatabase()">
+        Connect Database
+      </button>
+
+      <div
+        class="status"
+        id="statusBox">
+
+      </div>
+
+    </div>
+
+    <!-- Data Table -->
+
+    <div class="card">
+
+      <h2>Database Records</h2>
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody id="tableBody">
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    // Sample Database Records
+
+    const databaseData = [
+
+      {
+        id:1,
+        name:"Raja",
+        email:"raja@gmail.com"
+      },
+
+      {
+        id:2,
+        name:"Banu",
+        email:"banu@gmail.com"
+      },
+
+      {
+        id:3,
+        name:"Kumar",
+        email:"kumar@gmail.com"
+      }
+
+    ];
+
+    function connectDatabase(){
+
+      const host =
+        document.getElementById("host").value;
+
+      const database =
+        document.getElementById("database").value;
+
+      const username =
+        document.getElementById("username").value;
+
+      const password =
+        document.getElementById("password").value;
+
+      const statusBox =
+        document.getElementById("statusBox");
+
+      if(
+        host === "" ||
+        database === "" ||
+        username === "" ||
+        password === ""
+      ){
+
+        statusBox.style.display = "block";
+
+        statusBox.className =
+          "status error";
+
+        statusBox.innerText =
+          "Please fill all database details";
+
+        return;
+
+      }
+
+      // Fake Database Connection
+
+      statusBox.style.display = "block";
+
+      statusBox.className =
+        "status success";
+
+      statusBox.innerText =
+        "Database Connected Successfully";
+
+      displayData();
+
+    }
+
+    function displayData(){
+
+      const tableBody =
+        document.getElementById("tableBody");
+
+      tableBody.innerHTML = "";
+
+      databaseData.forEach((data)=>{
+
+        tableBody.innerHTML += `
+
+          <tr>
+
+            <td>${data.id}</td>
+
+            <td>${data.name}</td>
+
+            <td>${data.email}</td>
+
+          </tr>
+
+        `;
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>

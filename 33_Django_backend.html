@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Django Backend System UI</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f3f4f6;
+      padding:40px;
+    }
+
+    .container{
+      max-width:1100px;
+      margin:auto;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:30px;
+      color:#111827;
+    }
+
+    .card{
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      margin-bottom:25px;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      margin-bottom:15px;
+      color:#2563eb;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin-bottom:15px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      outline:none;
+    }
+
+    button{
+      padding:12px 18px;
+      border:none;
+      background:#2563eb;
+      color:white;
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#1d4ed8;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:20px;
+    }
+
+    table th,
+    table td{
+      border:1px solid #ddd;
+      padding:12px;
+      text-align:center;
+    }
+
+    table th{
+      background:#2563eb;
+      color:white;
+    }
+
+    .edit-btn{
+      background:orange;
+      margin-right:5px;
+    }
+
+    .delete-btn{
+      background:red;
+    }
+
+    .edit-btn:hover{
+      background:darkorange;
+    }
+
+    .delete-btn:hover{
+      background:darkred;
+    }
+
+    @media(max-width:768px){
+
+      body{
+        padding:15px;
+      }
+
+      table{
+        font-size:14px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Django Backend Management System</h1>
+
+    <!-- Add User -->
+
+    <div class="card">
+
+      <h2>Add User</h2>
+
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter username"
+      >
+
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter email"
+      >
+
+      <button onclick="addUser()">
+        Add User
+      </button>
+
+    </div>
+
+    <!-- User Table -->
+
+    <div class="card">
+
+      <h2>User List</h2>
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Actions</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody id="userTable">
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    let users = [
+
+      {
+        id:1,
+        username:"Raja",
+        email:"raja@gmail.com"
+      },
+
+      {
+        id:2,
+        username:"Banu",
+        email:"banu@gmail.com"
+      }
+
+    ];
+
+    function displayUsers(){
+
+      const table =
+        document.getElementById("userTable");
+
+      table.innerHTML = "";
+
+      users.forEach((user,index)=>{
+
+        table.innerHTML += `
+
+          <tr>
+
+            <td>${user.id}</td>
+
+            <td>${user.username}</td>
+
+            <td>${user.email}</td>
+
+            <td>
+
+              <button
+                class="edit-btn"
+                onclick="editUser(${index})">
+
+                Edit
+
+              </button>
+
+              <button
+                class="delete-btn"
+                onclick="deleteUser(${index})">
+
+                Delete
+
+              </button>
+
+            </td>
+
+          </tr>
+
+        `;
+
+      });
+
+    }
+
+    function addUser(){
+
+      const username =
+        document.getElementById("username").value;
+
+      const email =
+        document.getElementById("email").value;
+
+      if(username === "" || email === ""){
+
+        alert("Please fill all fields");
+
+        return;
+
+      }
+
+      const newUser = {
+
+        id: users.length + 1,
+
+        username: username,
+
+        email: email
+
+      };
+
+      users.push(newUser);
+
+      displayUsers();
+
+      document.getElementById("username").value = "";
+
+      document.getElementById("email").value = "";
+
+    }
+
+    function deleteUser(index){
+
+      users.splice(index,1);
+
+      displayUsers();
+
+    }
+
+    function editUser(index){
+
+      const newUsername = prompt(
+        "Enter new username",
+        users[index].username
+      );
+
+      const newEmail = prompt(
+        "Enter new email",
+        users[index].email
+      );
+
+      if(newUsername && newEmail){
+
+        users[index].username = newUsername;
+
+        users[index].email = newEmail;
+
+        displayUsers();
+
+      }
+
+    }
+
+    displayUsers();
+
+  </script>
+
+</body>
+</html>

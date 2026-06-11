@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Maps Integration</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#00c6ff,#0072ff);
+    padding:20px;
+}
+
+.container{
+    width:90%;
+    max-width:900px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.header{
+    background:#0072ff;
+    color:white;
+    text-align:center;
+    padding:20px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.info{
+    text-align:center;
+    padding:15px;
+    color:#555;
+}
+
+#map{
+    width:100%;
+    height:500px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        📍 Google Maps Integration
+    </div>
+
+    <div class="info">
+        Explore your location using Google Maps API
+    </div>
+
+    <div id="map"></div>
+
+</div>
+
+<script>
+function initMap(){
+
+    const location = {
+        lat: 11.0168,
+        lng: 76.9558
+    };
+
+    const map = new google.maps.Map(
+        document.getElementById("map"),
+        {
+            zoom: 12,
+            center: location
+        }
+    );
+
+    const marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: "Selected Location"
+    });
+
+    const infoWindow = new google.maps.InfoWindow({
+        content: "<h3>📍 Welcome!</h3><p>This is your selected location.</p>"
+    });
+
+    marker.addListener("click", () => {
+        infoWindow.open(map, marker);
+    });
+}
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
+</script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creative Sorting</title>
+    <style>
+        body{
+            font-family:Arial,sans-serif;
+            text-align:center;
+            padding:20px;
+        }
+
+        ul{
+            list-style:none;
+            padding:0;
+        }
+
+        li{
+            background:#f0f0f0;
+            margin:8px auto;
+            width:250px;
+            padding:12px;
+            border-radius:8px;
+        }
+
+        button{
+            padding:10px 15px;
+            margin:5px;
+            border:none;
+            background:#28a745;
+            color:white;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#1e7e34;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Sorting Functionality Demo</h2>
+
+<button onclick="sortAsc()">Sort A-Z</button>
+<button onclick="sortDesc()">Sort Z-A</button>
+
+<ul id="list"></ul>
+
+<script>
+let names = [
+    "Ramesh",
+    "Kumar",
+    "Arun",
+    "Bala",
+    "Deepak"
+];
+
+function displayList(){
+
+    let html = "";
+
+    names.forEach(name=>{
+        html += `<li>${name}</li>`;
+    });
+
+    document.getElementById("list").innerHTML = html;
+}
+
+function sortAsc(){
+    names.sort();
+    displayList();
+}
+
+function sortDesc(){
+    names.sort().reverse();
+    displayList();
+}
+
+displayList();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather App</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#36d1dc,#5b86e5);
+}
+
+.container{
+    width:400px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    color:white;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+}
+
+h1{
+    margin-bottom:20px;
+}
+
+.search-box{
+    display:flex;
+    gap:10px;
+}
+
+input{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+}
+
+button{
+    padding:12px 18px;
+    border:none;
+    border-radius:10px;
+    background:#ffffff;
+    color:#5b86e5;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.weather{
+    margin-top:20px;
+}
+
+.temp{
+    font-size:48px;
+    font-weight:bold;
+}
+
+.city{
+    font-size:28px;
+    margin-top:10px;
+}
+
+.desc{
+    font-size:18px;
+    margin-top:5px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🌦 Weather App</h1>
+
+    <div class="search-box">
+        <input type="text" id="cityInput"
+               placeholder="Enter City Name">
+        <button onclick="getWeather()">Search</button>
+    </div>
+
+    <div class="weather" id="weatherResult">
+        <p>Search a city to view weather</p>
+    </div>
+
+</div>
+
+<script>
+
+async function getWeather(){
+
+    const city =
+    document.getElementById("cityInput").value;
+
+    const apiKey = "YOUR_API_KEY";
+
+    const url =
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+    try{
+
+        const response = await fetch(url);
+        const data = await response.json();
+
+        document.getElementById("weatherResult").innerHTML = `
+            <div class="temp">
+                ${data.main.temp}°C
+            </div>
+
+            <div class="city">
+                ${data.name}
+            </div>
+
+            <div class="desc">
+                ${data.weather[0].description}
+            </div>
+
+            <p>💧 Humidity: ${data.main.humidity}%</p>
+            <p>🌬 Wind: ${data.wind.speed} m/s</p>
+        `;
+
+    }catch(error){
+
+        document.getElementById("weatherResult").innerHTML =
+        "<p>❌ City not found!</p>";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URL Shortener</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#11998e,#38ef7d);
+}
+
+.container{
+    width:450px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+h1{
+    color:#11998e;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    border:2px solid #11998e;
+    border-radius:10px;
+    margin-bottom:15px;
+    outline:none;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#11998e;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    opacity:0.9;
+}
+
+.result{
+    margin-top:20px;
+    padding:15px;
+    background:#f4f4f4;
+    border-radius:10px;
+    word-wrap:break-word;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🔗 URL Shortener</h1>
+
+    <input type="url"
+           id="longUrl"
+           placeholder="Paste your long URL">
+
+    <button onclick="shortenURL()">
+        Shorten URL
+    </button>
+
+    <div class="result" id="result">
+        Your shortened URL will appear here
+    </div>
+
+</div>
+
+<script>
+
+async function shortenURL(){
+
+    const longUrl =
+    document.getElementById("longUrl").value;
+
+    if(!longUrl){
+        alert("Please enter a URL");
+        return;
+    }
+
+    try{
+
+        const response = await fetch(
+            "http://localhost:3000/shorten",
+            {
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({longUrl})
+            }
+        );
+
+        const data = await response.json();
+
+        document.getElementById("result").innerHTML =
+        `<a href="${data.shortUrl}" target="_blank">
+            ${data.shortUrl}
+         </a>`;
+
+    }catch(error){
+
+        document.getElementById("result").innerHTML =
+        "Error generating short URL";
+    }
+}
+</script>
+
+</body>
+</html>

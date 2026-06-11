@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Gateway</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+<h2>Pay ₹500</h2>
+
+<button id="payBtn">Pay Now</button>
+
+<script>
+document.getElementById("payBtn").onclick = function () {
+
+    var options = {
+        key: "YOUR_RAZORPAY_KEY",
+        amount: 50000,
+        currency: "INR",
+        name: "My Store",
+        description: "Product Payment",
+
+        handler: function (response) {
+            alert(
+                "Payment Successful\n" +
+                response.razorpay_payment_id
+            );
+        },
+
+        theme: {
+            color: "#3399cc"
+        }
+    };
+
+    var rzp = new Razorpay(options);
+    rzp.open();
+};
+</script>
+
+</body>
+</html>

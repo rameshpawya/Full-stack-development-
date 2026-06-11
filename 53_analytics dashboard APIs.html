@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analytics Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .card {
+            display: inline-block;
+            width: 200px;
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Analytics Dashboard</h2>
+
+<div class="card">
+    <h3>Users</h3>
+    <h1 id="users">0</h1>
+</div>
+
+<div class="card">
+    <h3>Sales</h3>
+    <h1 id="sales">0</h1>
+</div>
+
+<div class="card">
+    <h3>Orders</h3>
+    <h1 id="orders">0</h1>
+</div>
+
+<script>
+async function loadAnalytics() {
+    const response = await fetch('/api/analytics');
+    const data = await response.json();
+
+    document.getElementById('users').textContent = data.users;
+    document.getElementById('sales').textContent = data.sales;
+    document.getElementById('orders').textContent = data.orders;
+}
+
+loadAnalytics();
+</script>
+
+</body>
+</html>

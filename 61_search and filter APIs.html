@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search & Filter API Demo</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg,#4facfe,#00f2fe);
+            padding: 20px;
+        }
+
+        .container{
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h2{
+            text-align: center;
+            color: #333;
+        }
+
+        input, select{
+            width: 48%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .card{
+            background: #f4f4f4;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Search & Filter API</h2>
+
+    <input type="text" id="searchBox" placeholder="Search Product...">
+    
+    <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Fashion">Fashion</option>
+    </select>
+
+    <div id="result"></div>
+</div>
+
+<script>
+const products = [
+    {name:"Laptop", category:"Electronics"},
+    {name:"Mobile", category:"Electronics"},
+    {name:"T-Shirt", category:"Fashion"},
+    {name:"Jeans", category:"Fashion"}
+];
+
+function displayProducts(data){
+    let output = "";
+    data.forEach(product => {
+        output += `
+        <div class="card">
+            <h3>${product.name}</h3>
+            <p>Category: ${product.category}</p>
+        </div>`;
+    });
+    document.getElementById("result").innerHTML = output;
+}
+
+function filterProducts(){
+    const searchText =
+        document.getElementById("searchBox").value.toLowerCase();
+    const category =
+        document.getElementById("categoryFilter").value;
+
+    const filtered = products.filter(product =>
+        product.name.toLowerCase().includes(searchText) &&
+        (category === "all" || product.category === category)
+    );
+
+    displayProducts(filtered);
+}
+
+document.getElementById("searchBox")
+        .addEventListener("keyup", filterProducts);
+
+document.getElementById("categoryFilter")
+        .addEventListener("change", filterProducts);
+
+displayProducts(products);
+</script>
+
+</body>
+</html>

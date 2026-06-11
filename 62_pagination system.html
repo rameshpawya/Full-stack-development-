@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Creative Pagination</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            text-align:center;
+            padding:20px;
+        }
+
+        .card{
+            background:#f4f4f4;
+            margin:10px auto;
+            padding:15px;
+            width:300px;
+            border-radius:10px;
+        }
+
+        .pagination{
+            margin-top:20px;
+        }
+
+        .pagination button{
+            padding:10px 15px;
+            margin:5px;
+            border:none;
+            background:#007bff;
+            color:white;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        .pagination button:hover{
+            background:#0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Creative Pagination Demo</h2>
+
+<div id="content"></div>
+
+<div class="pagination">
+    <button onclick="prevPage()">Previous</button>
+    <span id="pageInfo"></span>
+    <button onclick="nextPage()">Next</button>
+</div>
+
+<script>
+const data = [];
+
+for(let i=1;i<=50;i++){
+    data.push("Item " + i);
+}
+
+const itemsPerPage = 5;
+let currentPage = 1;
+
+function displayPage(){
+
+    const start = (currentPage-1) * itemsPerPage;
+    const end = start + itemsPerPage;
+
+    const pageItems = data.slice(start,end);
+
+    let html = "";
+
+    pageItems.forEach(item=>{
+        html += `<div class="card">${item}</div>`;
+    });
+
+    document.getElementById("content").innerHTML = html;
+
+    document.getElementById("pageInfo").innerText =
+        `Page ${currentPage} of ${Math.ceil(data.length/itemsPerPage)}`;
+}
+
+function nextPage(){
+    if(currentPage < Math.ceil(data.length/itemsPerPage)){
+        currentPage++;
+        displayPage();
+    }
+}
+
+function prevPage(){
+    if(currentPage > 1){
+        currentPage--;
+        displayPage();
+    }
+}
+
+displayPage();
+</script>
+
+</body>
+</html>

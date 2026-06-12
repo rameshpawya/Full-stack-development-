@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brand Guidelines</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:#333;
+    line-height:1.6;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.section{
+    background:#fff;
+    padding:30px;
+    margin-bottom:25px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:48px;
+}
+
+h2{
+    margin-bottom:20px;
+    color:#4f46e5;
+}
+
+/* Logo Section */
+.logo-box{
+    width:180px;
+    height:180px;
+    border-radius:20px;
+    background:#4f46e5;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
+    font-weight:bold;
+}
+
+/* Color Palette */
+.palette{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.color{
+    flex:1;
+    min-width:150px;
+    height:100px;
+    border-radius:12px;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+}
+
+.primary{background:#4f46e5;}
+.secondary{background:#06b6d4;}
+.success{background:#10b981;}
+.warning{background:#f59e0b;}
+.danger{background:#ef4444;}
+
+/* Typography */
+.display{
+    font-size:56px;
+    font-weight:800;
+}
+
+.heading{
+    font-size:36px;
+    font-weight:700;
+}
+
+.body{
+    font-size:18px;
+    color:#555;
+}
+
+/* Brand Values */
+.values{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.value-card{
+    background:#f8f9ff;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+}
+
+/* Buttons */
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:12px 24px;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.btn-primary{
+    background:#4f46e5;
+    color:white;
+}
+
+.btn-secondary{
+    background:#06b6d4;
+    color:white;
+}
+
+.btn-outline{
+    border:2px solid #4f46e5;
+    background:transparent;
+    color:#4f46e5;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Brand Guidelines</h1>
+
+    <!-- Logo -->
+    <div class="section">
+        <h2>Logo Usage</h2>
+        <div class="logo-box">B</div>
+        <p style="margin-top:20px;">
+            Always maintain clear space around the logo and use approved brand colors.
+        </p>
+    </div>
+
+    <!-- Colors -->
+    <div class="section">
+        <h2>Brand Colors</h2>
+
+        <div class="palette">
+            <div class="color primary">#4F46E5</div>
+            <div class="color secondary">#06B6D4</div>
+            <div class="color success">#10B981</div>
+            <div class="color warning">#F59E0B</div>
+            <div class="color danger">#EF4444</div>
+        </div>
+    </div>
+
+    <!-- Typography -->
+    <div class="section">
+        <h2>Typography</h2>
+
+        <p class="display">Display Heading</p>
+        <p class="heading">Section Heading</p>
+        <p class="body">
+            Body text should be clear, readable, and accessible across all devices.
+        </p>
+    </div>
+
+    <!-- Brand Values -->
+    <div class="section">
+        <h2>Brand Values</h2>
+
+        <div class="values">
+
+            <div class="value-card">
+                <h3>Innovation</h3>
+                <p>Create modern and impactful solutions.</p>
+            </div>
+
+            <div class="value-card">
+                <h3>Trust</h3>
+                <p>Build strong and lasting relationships.</p>
+            </div>
+
+            <div class="value-card">
+                <h3>Quality</h3>
+                <p>Deliver excellence in every product.</p>
+            </div>
+
+            <div class="value-card">
+                <h3>Growth</h3>
+                <p>Continuously improve and evolve.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- UI Components -->
+    <div class="section">
+        <h2>Button Styles</h2>
+
+        <div class="buttons">
+            <button class="btn btn-primary">Primary Button</button>
+            <button class="btn btn-secondary">Secondary Button</button>
+            <button class="btn btn-outline">Outline Button</button>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

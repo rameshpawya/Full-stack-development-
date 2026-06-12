@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Flow Wireframe</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f3f4f6;
+    padding:40px;
+}
+
+.container{
+    max-width:1400px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:40px;
+    color:#333;
+}
+
+.flow{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.step{
+    width:220px;
+    min-height:140px;
+    background:white;
+    border:3px solid #333;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    position:relative;
+}
+
+.step h3{
+    margin-bottom:10px;
+    color:#111;
+}
+
+.step p{
+    color:#555;
+    font-size:14px;
+}
+
+.arrow{
+    font-size:40px;
+    font-weight:bold;
+    color:#666;
+}
+
+.section{
+    margin-top:60px;
+}
+
+.branch-flow{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:50px;
+    margin-top:30px;
+}
+
+.branch{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.wireframe{
+    width:250px;
+    background:white;
+    border:2px dashed #666;
+    border-radius:12px;
+    padding:15px;
+}
+
+.header{
+    height:30px;
+    background:#ddd;
+    border-radius:6px;
+    margin-bottom:15px;
+}
+
+.banner{
+    height:70px;
+    background:#e5e7eb;
+    border-radius:6px;
+    margin-bottom:15px;
+}
+
+.line{
+    height:12px;
+    background:#ddd;
+    margin-bottom:10px;
+    border-radius:4px;
+}
+
+.button{
+    height:35px;
+    width:100px;
+    background:#cbd5e1;
+    border-radius:6px;
+    margin-top:15px;
+}
+
+.connector{
+    text-align:center;
+    font-size:30px;
+    color:#555;
+    margin:15px 0;
+}
+
+@media(max-width:1000px){
+
+    .flow,
+    .branch-flow{
+        flex-direction:column;
+    }
+
+    .arrow{
+        transform:rotate(90deg);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1 class="title">📊 User Flow Wireframe</h1>
+
+    <!-- User Flow -->
+    <div class="flow">
+
+        <div class="step">
+            <h3>Landing Page</h3>
+            <p>User visits website</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="step">
+            <h3>Sign Up</h3>
+            <p>Create new account</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="step">
+            <h3>Dashboard</h3>
+            <p>Access application features</p>
+        </div>
+
+        <div class="arrow">→</div>
+
+        <div class="step">
+            <h3>Checkout</h3>
+            <p>Purchase product/service</p>
+        </div>
+
+    </div>
+
+    <!-- Wireframe Screens -->
+    <div class="section">
+
+        <h2 style="text-align:center;margin-bottom:30px;">
+            Low-Fidelity Wireframes
+        </h2>
+
+        <div class="branch-flow">
+
+            <!-- Landing Page -->
+            <div class="branch">
+
+                <div class="wireframe">
+                    <div class="header"></div>
+                    <div class="banner"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="button"></div>
+                </div>
+
+                <div class="connector">↓</div>
+
+                <div class="step">
+                    <h3>Landing Page</h3>
+                    <p>User clicks Get Started</p>
+                </div>
+
+            </div>
+
+            <!-- Signup -->
+            <div class="branch">
+
+                <div class="wireframe">
+                    <div class="header"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="button"></div>
+                </div>
+
+                <div class="connector">↓</div>
+
+                <div class="step">
+                    <h3>Sign Up Form</h3>
+                    <p>User enters details</p>
+                </div>
+
+            </div>
+
+            <!-- Dashboard -->
+            <div class="branch">
+
+                <div class="wireframe">
+                    <div class="header"></div>
+                    <div class="banner"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+
+                <div class="connector">↓</div>
+
+                <div class="step">
+                    <h3>Dashboard</h3>
+                    <p>User explores features</p>
+                </div>
+
+            </div>
+
+            <!-- Checkout -->
+            <div class="branch">
+
+                <div class="wireframe">
+                    <div class="header"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="button"></div>
+                </div>
+
+                <div class="connector">↓</div>
+
+                <div class="step">
+                    <h3>Checkout</h3>
+                    <p>User completes payment</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

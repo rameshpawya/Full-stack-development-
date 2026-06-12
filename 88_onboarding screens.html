@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern Onboarding Screens</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#eef2ff,#dbeafe);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.container{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.screen{
+    width:340px;
+    height:680px;
+    background:#fff;
+    border-radius:35px;
+    overflow:hidden;
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+    position:relative;
+}
+
+.top{
+    height:260px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:90px;
+}
+
+.screen1 .top{
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+}
+
+.screen2 .top{
+    background:linear-gradient(135deg,#06b6d4,#2563eb);
+}
+
+.screen3 .top{
+    background:linear-gradient(135deg,#10b981,#14b8a6);
+}
+
+.content{
+    padding:35px 25px;
+    text-align:center;
+}
+
+.content h2{
+    color:#111827;
+    margin-bottom:15px;
+    font-size:28px;
+}
+
+.content p{
+    color:#6b7280;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.dots{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:30px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#d1d5db;
+}
+
+.active{
+    background:#4f46e5;
+    width:30px;
+    border-radius:20px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 35px;
+    background:#4f46e5;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+.skip{
+    position:absolute;
+    top:20px;
+    right:20px;
+    color:white;
+    font-size:14px;
+    text-decoration:none;
+    font-weight:500;
+}
+
+.footer{
+    position:absolute;
+    bottom:30px;
+    width:100%;
+    text-align:center;
+}
+
+.start-btn{
+    background:linear-gradient(135deg,#10b981,#14b8a6);
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Screen 1 -->
+    <div class="screen screen1">
+
+        <a href="#" class="skip">Skip</a>
+
+        <div class="top">
+            🚀
+        </div>
+
+        <div class="content">
+            <h2>Welcome</h2>
+
+            <p>
+                Discover a smarter way to manage your tasks,
+                projects, and daily productivity.
+            </p>
+
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+            <a href="#" class="btn">Next</a>
+        </div>
+
+    </div>
+
+    <!-- Screen 2 -->
+    <div class="screen screen2">
+
+        <a href="#" class="skip">Skip</a>
+
+        <div class="top">
+            📊
+        </div>
+
+        <div class="content">
+            <h2>Track Progress</h2>
+
+            <p>
+                Monitor performance, analyze insights,
+                and achieve your goals efficiently.
+            </p>
+
+            <div class="dots">
+                <span class="dot"></span>
+                <span class="dot active"></span>
+                <span class="dot"></span>
+            </div>
+
+            <a href="#" class="btn">Next</a>
+        </div>
+
+    </div>
+
+    <!-- Screen 3 -->
+    <div class="screen screen3">
+
+        <a href="#" class="skip">Skip</a>
+
+        <div class="top">
+            🎯
+        </div>
+
+        <div class="content">
+            <h2>Get Started</h2>
+
+            <p>
+                Join thousands of users and experience
+                seamless productivity from day one.
+            </p>
+
+            <div class="dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot active"></span>
+            </div>
+
+            <a href="#" class="btn start-btn">
+                Start Now
+            </a>
+        </div>
+
+        <div class="footer">
+            <small>Version 1.0 • Modern App UI</small>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

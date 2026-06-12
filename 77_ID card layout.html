@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ID Card Design</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f4f6f9;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    flex-wrap:wrap;
+    padding:20px;
+}
+
+/* Card Base */
+.id-card{
+    width:320px;
+    height:520px;
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Front Side */
+.header{
+    background:linear-gradient(135deg,#4f46e5,#06b6d4);
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+.company-logo{
+    width:70px;
+    height:70px;
+    background:white;
+    color:#4f46e5;
+    border-radius:50%;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.company-name{
+    margin-top:12px;
+    font-size:20px;
+}
+
+.profile{
+    text-align:center;
+    padding:25px;
+}
+
+.profile-img{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:#e5e7eb;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    color:#6b7280;
+}
+
+.name{
+    margin-top:15px;
+    font-size:24px;
+    font-weight:bold;
+    color:#111827;
+}
+
+.role{
+    color:#4f46e5;
+    margin-top:5px;
+}
+
+/* Details */
+.details{
+    padding:0 25px;
+}
+
+.detail{
+    margin-bottom:15px;
+    padding:10px;
+    background:#f8f9ff;
+    border-radius:10px;
+}
+
+.label{
+    font-size:12px;
+    color:#777;
+}
+
+.value{
+    font-weight:600;
+    color:#333;
+}
+
+/* Back Side */
+.back-header{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.qr-code{
+    width:150px;
+    height:150px;
+    background:#e5e7eb;
+    margin:30px auto;
+    border-radius:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#666;
+}
+
+.instructions{
+    padding:20px;
+    text-align:center;
+    color:#555;
+    line-height:1.6;
+}
+
+.footer{
+    text-align:center;
+    color:#777;
+    font-size:14px;
+}
+</style>
+</head>
+<body>
+
+<!-- Front Side -->
+<div class="id-card">
+
+    <div class="header">
+        <div class="company-logo">E</div>
+        <div class="company-name">Excel College</div>
+    </div>
+
+    <div class="profile">
+        <div class="profile-img">👤</div>
+
+        <div class="name">Nila Raja</div>
+
+        <div class="role">
+            AI & Data Science Student
+        </div>
+    </div>
+
+    <div class="details">
+
+        <div class="detail">
+            <div class="label">ID Number</div>
+            <div class="value">AI2026-001</div>
+        </div>
+
+        <div class="detail">
+            <div class="label">Department</div>
+            <div class="value">Artificial Intelligence & DS</div>
+        </div>
+
+        <div class="detail">
+            <div class="label">Valid Until</div>
+            <div class="value">June 2028</div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Back Side -->
+<div class="id-card">
+
+    <div class="back-header">
+        ID Card - Back Side
+    </div>
+
+    <div class="qr-code">
+        QR CODE
+    </div>
+
+    <div class="instructions">
+        This card is the property of the institution.
+        If found, please return it to the administration office.
+    </div>
+
+    <div class="footer">
+        www.excelcollege.edu
+    </div>
+
+</div>
+
+</body>
+</html>

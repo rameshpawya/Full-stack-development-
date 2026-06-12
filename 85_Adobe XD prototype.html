@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adobe XD Style Prototype</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+    padding:40px;
+}
+
+.prototype-container{
+    max-width:1400px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:40px;
+    color:#2563eb;
+    font-size:36px;
+}
+
+.artboards{
+    display:flex;
+    flex-wrap:wrap;
+    gap:30px;
+    justify-content:center;
+}
+
+.artboard{
+    width:360px;
+    height:720px;
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+    position:relative;
+}
+
+/* Header */
+.header{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    padding:25px;
+}
+
+.header h2{
+    margin-bottom:8px;
+}
+
+/* Hero */
+.hero{
+    padding:25px;
+}
+
+.hero-card{
+    background:linear-gradient(135deg,#dbeafe,#ede9fe);
+    border-radius:20px;
+    padding:20px;
+}
+
+.hero-card h3{
+    color:#1e3a8a;
+    margin-bottom:10px;
+}
+
+/* Feature Cards */
+.features{
+    padding:20px;
+}
+
+.feature{
+    background:#f8fafc;
+    padding:15px;
+    border-radius:15px;
+    margin-bottom:15px;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.feature:hover{
+    transform:translateY(-4px);
+}
+
+.feature h4{
+    color:#2563eb;
+    margin-bottom:6px;
+}
+
+/* Button */
+.btn{
+    display:block;
+    width:90%;
+    margin:20px auto;
+    text-align:center;
+    text-decoration:none;
+    background:#2563eb;
+    color:white;
+    padding:14px;
+    border-radius:12px;
+    font-weight:bold;
+}
+
+/* Navigation */
+.bottom-nav{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background:white;
+    border-top:1px solid #e5e7eb;
+    display:flex;
+    justify-content:space-around;
+    padding:15px;
+}
+
+.nav-item{
+    text-align:center;
+    color:#64748b;
+    font-size:14px;
+}
+
+.active{
+    color:#2563eb;
+}
+
+/* Profile Screen */
+.profile{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.avatar{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:#dbeafe;
+    margin:auto;
+    margin-bottom:15px;
+}
+
+.info-card{
+    background:#f8fafc;
+    margin:15px;
+    padding:15px;
+    border-radius:15px;
+}
+</style>
+</head>
+<body>
+
+<div class="prototype-container">
+
+    <h1 class="title">🎨 Adobe XD Mobile App Prototype</h1>
+
+    <div class="artboards">
+
+        <!-- Home Screen -->
+        <div class="artboard">
+
+            <div class="header">
+                <h2>Welcome Back</h2>
+                <p>Explore your dashboard</p>
+            </div>
+
+            <div class="hero">
+                <div class="hero-card">
+                    <h3>Premium Membership</h3>
+                    <p>Unlock all premium features and benefits.</p>
+                </div>
+            </div>
+
+            <div class="features">
+
+                <div class="feature">
+                    <h4>📊 Analytics</h4>
+                    <p>Track your performance metrics.</p>
+                </div>
+
+                <div class="feature">
+                    <h4>📁 Projects</h4>
+                    <p>Manage all your ongoing projects.</p>
+                </div>
+
+                <div class="feature">
+                    <h4>📅 Schedule</h4>
+                    <p>View upcoming tasks and events.</p>
+                </div>
+
+            </div>
+
+            <a href="#" class="btn">Get Started</a>
+
+            <div class="bottom-nav">
+                <div class="nav-item active">🏠<br>Home</div>
+                <div class="nav-item">📊<br>Stats</div>
+                <div class="nav-item">👤<br>Profile</div>
+            </div>
+
+        </div>
+
+        <!-- Profile Screen -->
+        <div class="artboard">
+
+            <div class="header">
+                <h2>My Profile</h2>
+                <p>User Information</p>
+            </div>
+
+            <div class="profile">
+
+                <div class="avatar"></div>
+
+                <h3>John Doe</h3>
+                <p>UI/UX Designer</p>
+
+            </div>
+
+            <div class="info-card">
+                <h4>Email</h4>
+                <p>john@example.com</p>
+            </div>
+
+            <div class="info-card">
+                <h4>Phone</h4>
+                <p>+91 98765 43210</p>
+            </div>
+
+            <div class="info-card">
+                <h4>Location</h4>
+                <p>Chennai, India</p>
+            </div>
+
+            <div class="bottom-nav">
+                <div class="nav-item">🏠<br>Home</div>
+                <div class="nav-item">📊<br>Stats</div>
+                <div class="nav-item active">👤<br>Profile</div>
+            </div>
+
+        </div>
+
+        <!-- Analytics Screen -->
+        <div class="artboard">
+
+            <div class="header">
+                <h2>Analytics</h2>
+                <p>Performance Overview</p>
+            </div>
+
+            <div style="padding:25px;">
+
+                <div class="hero-card">
+                    <h3>Monthly Growth</h3>
+                    <h1>+24%</h1>
+                </div>
+
+                <div class="feature" style="margin-top:20px;">
+                    <h4>Visitors</h4>
+                    <p>12,450 Users</p>
+                </div>
+
+                <div class="feature">
+                    <h4>Revenue</h4>
+                    <p>$8,250</p>
+                </div>
+
+                <div class="feature">
+                    <h4>Conversions</h4>
+                    <p>1,540 Leads</p>
+                </div>
+
+            </div>
+
+            <div class="bottom-nav">
+                <div class="nav-item">🏠<br>Home</div>
+                <div class="nav-item active">📊<br>Stats</div>
+                <div class="nav-item">👤<br>Profile</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

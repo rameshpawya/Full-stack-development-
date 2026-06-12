@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Educational Brochure</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#eef2f7;
+    padding:40px;
+    display:flex;
+    justify-content:center;
+}
+
+.brochure{
+    width:1200px;
+    background:#fff;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.panel{
+    padding:35px;
+}
+
+.left{
+    background:linear-gradient(135deg,#2563eb,#1e40af);
+    color:white;
+}
+
+.center{
+    background:#ffffff;
+}
+
+.right{
+    background:#f8fafc;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.tagline{
+    font-size:18px;
+    margin-bottom:30px;
+    opacity:0.9;
+}
+
+.hero-title{
+    font-size:42px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.hero-text{
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    background:white;
+    color:#2563eb;
+    padding:12px 25px;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+.section-title{
+    color:#2563eb;
+    margin-bottom:15px;
+    font-size:24px;
+}
+
+.course{
+    background:#f1f5f9;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:12px;
+}
+
+.course h4{
+    color:#1e40af;
+    margin-bottom:8px;
+}
+
+.feature{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+    padding:12px;
+    background:white;
+    border-radius:10px;
+}
+
+.contact-box{
+    margin-top:20px;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+}
+
+.contact-box p{
+    margin:8px 0;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.stat{
+    background:#dbeafe;
+    padding:15px;
+    text-align:center;
+    border-radius:12px;
+}
+
+.stat h3{
+    color:#1e40af;
+    font-size:28px;
+}
+</style>
+</head>
+<body>
+
+<div class="brochure">
+
+    <!-- Left Panel -->
+    <div class="panel left">
+
+        <div class="logo">🎓 EDUCARE</div>
+
+        <div class="tagline">
+            Empowering Future Leaders Through Quality Education
+        </div>
+
+        <h1 class="hero-title">
+            Admissions Open 2026
+        </h1>
+
+        <p class="hero-text">
+            Join our institution and gain access to world-class
+            education, expert faculty, industry-focused curriculum,
+            and modern learning facilities.
+        </p>
+
+        <a href="#" class="btn">Apply Today</a>
+
+        <div class="stats">
+            <div class="stat">
+                <h3>5000+</h3>
+                <p>Students</p>
+            </div>
+
+            <div class="stat">
+                <h3>100+</h3>
+                <p>Faculty</p>
+            </div>
+
+            <div class="stat">
+                <h3>95%</h3>
+                <p>Placement</p>
+            </div>
+
+            <div class="stat">
+                <h3>25+</h3>
+                <p>Programs</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Center Panel -->
+    <div class="panel center">
+
+        <h2 class="section-title">Our Programs</h2>
+
+        <div class="course">
+            <h4>B.Sc Artificial Intelligence & Data Science</h4>
+            <p>Advanced AI, Machine Learning, and Analytics.</p>
+        </div>
+
+        <div class="course">
+            <h4>B.Tech Computer Science</h4>
+            <p>Software Development and Emerging Technologies.</p>
+        </div>
+
+        <div class="course">
+            <h4>BBA Business Management</h4>
+            <p>Leadership and Entrepreneurship Skills.</p>
+        </div>
+
+        <div class="course">
+            <h4>MCA & MBA Programs</h4>
+            <p>Professional Postgraduate Education.</p>
+        </div>
+
+        <h2 class="section-title">Why Choose Us?</h2>
+
+        <div class="feature">✅ Experienced Faculty</div>
+        <div class="feature">✅ Smart Classrooms</div>
+        <div class="feature">✅ Industry Collaboration</div>
+        <div class="feature">✅ Internship Opportunities</div>
+        <div class="feature">✅ Placement Assistance</div>
+
+    </div>
+
+    <!-- Right Panel -->
+    <div class="panel right">
+
+        <h2 class="section-title">Campus Facilities</h2>
+
+        <div class="feature">📚 Digital Library</div>
+        <div class="feature">💻 Computer Labs</div>
+        <div class="feature">🏀 Sports Complex</div>
+        <div class="feature">🏢 Innovation Center</div>
+        <div class="feature">🚌 Transportation</div>
+        <div class="feature">🏠 Hostel Facility</div>
+
+        <div class="contact-box">
+            <h2 class="section-title">Contact Us</h2>
+
+            <p>📍 College Campus, Tamil Nadu</p>
+            <p>📞 +91 98765 43210</p>
+            <p>📧 admissions@educare.edu</p>
+            <p>🌐 www.educare.edu</p>
+        </div>
+
+        <div class="contact-box">
+            <h2 class="section-title">Admission Highlights</h2>
+
+            <p>✔ Scholarships Available</p>
+            <p>✔ Merit-Based Admission</p>
+            <p>✔ Industry Training</p>
+            <p>✔ Career Guidance Support</p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

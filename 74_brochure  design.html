@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brochure Design</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#eef2f7;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+/* Brochure */
+.brochure{
+    max-width:1200px;
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:0;
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+/* Panels */
+.panel{
+    padding:40px 30px;
+    min-height:600px;
+}
+
+.panel-1{
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    color:white;
+}
+
+.panel-2{
+    background:white;
+}
+
+.panel-3{
+    background:#111827;
+    color:white;
+}
+
+.logo{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:white;
+    color:#4f46e5;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:36px;
+    font-weight:bold;
+    margin-bottom:25px;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+h2{
+    margin-bottom:20px;
+    color:#4f46e5;
+}
+
+.panel-3 h2{
+    color:#fff;
+}
+
+p{
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.service{
+    background:#f8f9ff;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.contact-item{
+    margin-bottom:15px;
+}
+
+/* Button */
+.btn{
+    display:inline-block;
+    padding:12px 24px;
+    background:white;
+    color:#4f46e5;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+/* Responsive */
+@media(max-width:900px){
+    .brochure{
+        grid-template-columns:1fr;
+    }
+
+    .panel{
+        min-height:auto;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="brochure">
+
+    <!-- Panel 1 -->
+    <div class="panel panel-1">
+
+        <div class="logo">N</div>
+
+        <h1>Creative Agency</h1>
+
+        <p>
+            We help businesses grow with innovative
+            design, development, and digital solutions.
+        </p>
+
+        <a href="#" class="btn">Learn More</a>
+
+    </div>
+
+    <!-- Panel 2 -->
+    <div class="panel panel-2">
+
+        <h2>Our Services</h2>
+
+        <div class="service">
+            <h3>Web Development</h3>
+            <p>Responsive websites and web applications.</p>
+        </div>
+
+        <div class="service">
+            <h3>UI/UX Design</h3>
+            <p>Modern and user-friendly digital experiences.</p>
+        </div>
+
+        <div class="service">
+            <h3>Digital Marketing</h3>
+            <p>Strategies to increase visibility and growth.</p>
+        </div>
+
+        <div class="service">
+            <h3>Brand Identity</h3>
+            <p>Professional logos and branding systems.</p>
+        </div>
+
+    </div>
+
+    <!-- Panel 3 -->
+    <div class="panel panel-3">
+
+        <h2>Contact Us</h2>
+
+        <p>
+            Ready to start your next project?
+            Get in touch with our team today.
+        </p>
+
+        <div class="contact-item">
+            📧 info@company.com
+        </div>
+
+        <div class="contact-item">
+            📞 +91 98765 43210
+        </div>
+
+        <div class="contact-item">
+            🌐 www.company.com
+        </div>
+
+        <div class="contact-item">
+            📍 Tamil Nadu, India
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

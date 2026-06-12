@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo Presentation</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+    color:#333;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+/* Hero Section */
+.hero{
+    text-align:center;
+    padding:80px 20px;
+    background:white;
+    border-radius:25px;
+    margin-bottom:30px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.logo{
+    width:180px;
+    height:180px;
+    margin:auto;
+    border-radius:50%;
+    background:linear-gradient(135deg,#4f46e5,#06b6d4);
+    color:white;
+    font-size:80px;
+    font-weight:bold;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.hero h1{
+    margin-top:25px;
+    font-size:42px;
+}
+
+.hero p{
+    color:#666;
+    margin-top:10px;
+}
+
+/* Sections */
+.section{
+    background:white;
+    padding:30px;
+    margin-bottom:25px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.section h2{
+    color:#4f46e5;
+    margin-bottom:20px;
+}
+
+/* Logo Variations */
+.variations{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.logo-card{
+    padding:30px;
+    text-align:center;
+    border-radius:15px;
+    background:#f8f9ff;
+}
+
+.logo-small{
+    width:100px;
+    height:100px;
+    margin:auto;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:40px;
+    font-weight:bold;
+    color:white;
+}
+
+.primary{
+    background:#4f46e5;
+}
+
+.dark{
+    background:#111827;
+}
+
+.gradient{
+    background:linear-gradient(135deg,#4f46e5,#06b6d4);
+}
+
+/* Colors */
+.colors{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+.color{
+    flex:1;
+    min-width:150px;
+    height:100px;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-weight:bold;
+}
+
+.c1{background:#4f46e5;}
+.c2{background:#06b6d4;}
+.c3{background:#111827;}
+.c4{background:#10b981;}
+
+/* Usage */
+.usage{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#f8f9ff;
+    padding:20px;
+    border-radius:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="logo">N</div>
+
+        <h1>Brand Logo Presentation</h1>
+
+        <p>
+            A modern and memorable logo identity system.
+        </p>
+    </div>
+
+    <!-- Brand Story -->
+    <div class="section">
+        <h2>Brand Story</h2>
+
+        <p>
+            The logo represents innovation, creativity,
+            and growth. Its clean and modern design ensures
+            strong recognition across digital and print media.
+        </p>
+    </div>
+
+    <!-- Logo Variations -->
+    <div class="section">
+        <h2>Logo Variations</h2>
+
+        <div class="variations">
+
+            <div class="logo-card">
+                <div class="logo-small primary">N</div>
+                <p>Primary Logo</p>
+            </div>
+
+            <div class="logo-card">
+                <div class="logo-small dark">N</div>
+                <p>Dark Version</p>
+            </div>
+
+            <div class="logo-card">
+                <div class="logo-small gradient">N</div>
+                <p>Gradient Version</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Color Palette -->
+    <div class="section">
+        <h2>Brand Colors</h2>
+
+        <div class="colors">
+            <div class="color c1">#4F46E5</div>
+            <div class="color c2">#06B6D4</div>
+            <div class="color c3">#111827</div>
+            <div class="color c4">#10B981</div>
+        </div>
+    </div>
+
+    <!-- Usage Guidelines -->
+    <div class="section">
+        <h2>Logo Usage Guidelines</h2>
+
+        <div class="usage">
+
+            <div class="card">
+                <h3>✅ Do</h3>
+                <p>Maintain spacing and use approved colors.</p>
+            </div>
+
+            <div class="card">
+                <h3>❌ Don't</h3>
+                <p>Stretch, distort, or change logo proportions.</p>
+            </div>
+
+            <div class="card">
+                <h3>📏 Minimum Size</h3>
+                <p>Keep logo readable across all devices.</p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Poster</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#e5e7eb;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+}
+
+.poster{
+    width:800px;
+    max-width:100%;
+    background:#fff;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* Hero Section */
+.hero{
+    background:linear-gradient(135deg,#4f46e5,#06b6d4);
+    color:white;
+    text-align:center;
+    padding:70px 30px;
+    position:relative;
+}
+
+.hero h1{
+    font-size:60px;
+    margin-bottom:10px;
+    text-transform:uppercase;
+}
+
+.hero h2{
+    font-size:24px;
+    font-weight:400;
+}
+
+.badge{
+    display:inline-block;
+    margin-top:20px;
+    background:white;
+    color:#4f46e5;
+    padding:10px 25px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+/* Content */
+.content{
+    padding:40px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.info-card{
+    background:#f8f9ff;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.info-card h3{
+    color:#4f46e5;
+    margin-bottom:10px;
+}
+
+.description{
+    text-align:center;
+    color:#555;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+/* Speakers */
+.speakers{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:35px;
+}
+
+.speaker{
+    text-align:center;
+}
+
+.avatar{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:#4f46e5;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    margin:auto;
+}
+
+.speaker h4{
+    margin-top:10px;
+}
+
+/* CTA */
+.cta{
+    text-align:center;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:#4f46e5;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+</style>
+</head>
+<body>
+
+<div class="poster">
+
+    <!-- Hero -->
+    <div class="hero">
+        <h1>Tech Fest 2026</h1>
+        <h2>Innovation • Technology • Future</h2>
+
+        <div class="badge">
+            Free Entry
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+        <div class="info-grid">
+
+            <div class="info-card">
+                <h3>📅 Date</h3>
+                <p>15 July 2026</p>
+            </div>
+
+            <div class="info-card">
+                <h3>⏰ Time</h3>
+                <p>10:00 AM</p>
+            </div>
+
+            <div class="info-card">
+                <h3>📍 Venue</h3>
+                <p>Main Auditorium</p>
+            </div>
+
+        </div>
+
+        <div class="description">
+            Join industry experts and technology enthusiasts
+            for a day of learning, networking, innovation,
+            coding challenges, and exciting competitions.
+        </div>
+
+        <!-- Speakers -->
+        <div class="speakers">
+
+            <div class="speaker">
+                <div class="avatar">A</div>
+                <h4>Speaker 1</h4>
+            </div>
+
+            <div class="speaker">
+                <div class="avatar">B</div>
+                <h4>Speaker 2</h4>
+            </div>
+
+            <div class="speaker">
+                <div class="avatar">C</div>
+                <h4>Speaker 3</h4>
+            </div>
+
+        </div>
+
+        <!-- CTA -->
+        <div class="cta">
+            <a href="#" class="btn">Register Now</a>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

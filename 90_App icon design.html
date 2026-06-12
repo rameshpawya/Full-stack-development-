@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>App Icon Design Showcase</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#eef2ff,#dbeafe);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.container{
+    text-align:center;
+}
+
+h1{
+    color:#1e293b;
+    margin-bottom:15px;
+}
+
+.subtitle{
+    color:#64748b;
+    margin-bottom:50px;
+}
+
+.icon-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:35px;
+    max-width:900px;
+}
+
+/* Base Icon */
+.app-icon{
+    width:160px;
+    height:160px;
+    border-radius:38px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:70px;
+    color:white;
+    margin:auto;
+    box-shadow:0 20px 35px rgba(0,0,0,0.15);
+    transition:0.4s;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+}
+
+.app-icon:hover{
+    transform:translateY(-10px) scale(1.05);
+}
+
+.app-icon::before{
+    content:"";
+    position:absolute;
+    width:200%;
+    height:200%;
+    background:rgba(255,255,255,0.15);
+    transform:rotate(45deg);
+    top:-120%;
+    left:-120%;
+    transition:0.6s;
+}
+
+.app-icon:hover::before{
+    top:100%;
+    left:100%;
+}
+
+/* Icons */
+
+.ai{
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+}
+
+.finance{
+    background:linear-gradient(135deg,#10b981,#059669);
+}
+
+.social{
+    background:linear-gradient(135deg,#f97316,#ef4444);
+}
+
+.health{
+    background:linear-gradient(135deg,#06b6d4,#2563eb);
+}
+
+.music{
+    background:linear-gradient(135deg,#ec4899,#a855f7);
+}
+
+.shopping{
+    background:linear-gradient(135deg,#f59e0b,#f97316);
+}
+
+.label{
+    margin-top:15px;
+    font-size:18px;
+    font-weight:600;
+    color:#334155;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📱 App Icon Design Collection</h1>
+    <p class="subtitle">
+        Modern Gradient-Based Mobile App Icons
+    </p>
+
+    <div class="icon-grid">
+
+        <div>
+            <div class="app-icon ai">🤖</div>
+            <div class="label">AI App</div>
+        </div>
+
+        <div>
+            <div class="app-icon finance">💰</div>
+            <div class="label">Finance</div>
+        </div>
+
+        <div>
+            <div class="app-icon social">💬</div>
+            <div class="label">Social</div>
+        </div>
+
+        <div>
+            <div class="app-icon health">❤️</div>
+            <div class="label">Health</div>
+        </div>
+
+        <div>
+            <div class="app-icon music">🎵</div>
+            <div class="label">Music</div>
+        </div>
+
+        <div>
+            <div class="app-icon shopping">🛍️</div>
+            <div class="label">Shopping</div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
